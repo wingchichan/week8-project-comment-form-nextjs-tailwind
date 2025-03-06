@@ -10,8 +10,8 @@ export default function Home() {
       </header>
       <main>
         <Link href="/posts">Your posts</Link>
-        {/* shows all posts */}
-        {/* click on individual post to go to post[id] page.js */}
+        <Link href="/newPost">Add post</Link>
+
         {/* add new post */}
       </main>
       <footer></footer>
