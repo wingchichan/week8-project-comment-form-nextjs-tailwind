@@ -21,15 +21,6 @@ export default async function Page({ params }) {
   //   const singleComment = comments.rows[0];
   //   console.log(singleComment);
 
-  //   const post = await db.query(`SELECT posts.*, ARRAY_AGG(comments.*) AS comments
-  //   FROM posts
-  //   INNER JOIN comments on comments.post_id = posts.id
-  //   GROUP BY comments.post_id, posts.id`);
-  //   console.log(post);
-
-  //   const postWithComms = post.rows[0];
-  //   console.log(postWithComms);
-
   //   const post = await db.query(`
   //         SELECT
   //           posts.*,
@@ -44,6 +35,8 @@ export default async function Page({ params }) {
   //         GROUP BY posts.id
   //       `);
 
+  //   need COALESCE because it kept erroring when I added new photo without comments
+  // COALESCE handles NULL values so empty array [] is returned if no comments
   const post = await db.query(
     `
       SELECT p.*, 
@@ -93,7 +86,7 @@ GROUP BY p.id;
         src={singlePost.image}
       />
       <div>
-        {/* need to map from the parent i.e. singlePost (comments.map didn't work) */}
+        {/* singlePost.comments.map wasn't working so assigned it to a variable above to be used here */}
 
         {commentDiv}
         <form action={handleAddComment}>
