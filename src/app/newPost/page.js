@@ -19,8 +19,8 @@ export default function Page() {
     redirect("/posts");
   }
   return (
-    <div>
-      <form action={handleAddPost}>
+    <div className="m-5">
+      <form className="pt-10 flex flex-col gap-2" action={handleAddPost}>
         <label htmlFor="title">Title</label>
         <input
           id="title"
@@ -29,7 +29,9 @@ export default function Page() {
           type="text"
           required
         />
-        <label htmlFor="image">Image URL</label>
+        <label className="pt-5" htmlFor="image">
+          Image URL
+        </label>
         <input
           id="image"
           name="image"
@@ -37,7 +39,7 @@ export default function Page() {
           type="text"
           required
         />
-        <button>Add</button>
+        <button className="text-end pt-2 border-solid">Add</button>
       </form>
     </div>
   );

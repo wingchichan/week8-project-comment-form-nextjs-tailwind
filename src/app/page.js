@@ -6,10 +6,48 @@ import { ramettoOne } from "@/app/layout";
 export default function Home() {
   return (
     <div>
-      <header>
-        <h1>Snapshot</h1>
-      </header>
-      <main></main>
+      <main>
+        <p className="pt-8 italic">Trending</p>
+        <section className="flex flex-wrap flex-row">
+          <Image
+            className="flex-none"
+            height={200}
+            width={200}
+            alt="burger"
+            src="https://images.unsplash.com/photo-1740838535478-8f67b29f1c00?q=80&w=3304&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+          <Image
+            height={200}
+            width={200}
+            alt="robin"
+            src="https://images.unsplash.com/photo-1739801335161-6554b1326712?q=80&w=3227&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+          <Image
+            height={200}
+            width={200}
+            alt="room with tree inside"
+            src="https://images.unsplash.com/photo-1736821481668-2cb07ceed73b?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+          <Image
+            height={200}
+            width={200}
+            alt="colourful brushes"
+            src="https://images.unsplash.com/photo-1734980620393-d145b2f6ddf7?q=80&w=3271&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+          <Image
+            height={200}
+            width={200}
+            alt="train station platform with people"
+            src="https://images.unsplash.com/photo-1740978853515-a41fcedcf950?q=80&w=3091&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+          <Image
+            height={200}
+            width={200}
+            alt="woman sitting on stone wall"
+            src="https://plus.unsplash.com/premium_photo-1740595153763-f26f3be68b0a?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          />
+        </section>
+      </main>
       <footer></footer>
     </div>
   );

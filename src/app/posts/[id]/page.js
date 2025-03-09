@@ -71,14 +71,14 @@ GROUP BY p.id;
   if (comments) {
     commentDiv = comments.map((comment) => (
       <div key={comment.id}>
-        <p>{comment.content}</p>
+        <p className="italic pt-5">{comment.content}</p>
       </div>
     ));
   }
 
   return (
     <div>
-      <h1>{singlePost.title}</h1>
+      <p className="font-extrabold text-xl pt-5">{singlePost.title}</p>
       <Image
         height={300}
         width={300}
@@ -88,9 +88,10 @@ GROUP BY p.id;
       <div>
         {/* singlePost.comments.map wasn't working so assigned it to a variable above to be used here */}
 
-        {commentDiv}
-        <form action={handleAddComment}>
-          <label htmlFor="commment">Comment</label>
+        <form className="pt-5" action={handleAddComment}>
+          <label className="pr-3" htmlFor="commment">
+            Comment
+          </label>
           <input
             id="comment"
             name="comment"
@@ -98,8 +99,9 @@ GROUP BY p.id;
             type="text"
             required
           />
-          <button>Add Comment</button>
+          <button className="pl-3">Add Comment</button>
         </form>
+        {commentDiv}
       </div>
     </div>
   );

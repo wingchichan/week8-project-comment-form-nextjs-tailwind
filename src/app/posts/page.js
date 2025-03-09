@@ -28,13 +28,18 @@ export default async function AllPosts({ searchParams }) {
 
   return (
     <div>
-      <Link href="/posts?sort=asc">Ascending Order</Link>
-      <Link href="/posts?sort=desc">Descending Order</Link>
+      <p className="flex flex-col">
+        Sort by: <Link href="/posts?sort=asc">Ascending</Link>
+        <Link href="/posts?sort=desc">Descending</Link>
+      </p>
+
       {posts.map((post) => (
-        <div className="flex flex-col" key={post.id}>
+        <div className="flex flex-col pt-10" key={post.id}>
           {/* ${post.id} ensures it takes you to the correct dynamic route depending on what the user clicks */}
-          <Link href={`/posts/${post.id}`}>{post.title}</Link>
-          <Image height={100} width={100} alt={post.title} src={post.image} />
+          <Link className="font-extrabold text-xl" href={`/posts/${post.id}`}>
+            {post.title}
+          </Link>
+          <Image height={200} width={200} alt={post.title} src={post.image} />
           <DeleteButton id={post.id} deleteFunction={handleDelete} />
         </div>
       ))}

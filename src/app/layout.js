@@ -29,7 +29,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <nav>
+        <h1 className="text-center">Snapshot</h1>
+        <nav className="text-center flex justify-around">
           <Link href={"/"}>Home</Link>
 
           <Link href="/posts">Your posts</Link>
