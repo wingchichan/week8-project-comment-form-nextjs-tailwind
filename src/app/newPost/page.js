@@ -1,4 +1,6 @@
 import pg from "pg";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export default function Page() {
   async function handleAddPost(formData) {
@@ -12,19 +14,13 @@ export default function Page() {
       title,
       image,
     ]);
+    revalidatePath("/posts");
+    redirect("/posts");
   }
   return (
     <form action={handleAddPost}>
       <label htmlFor="title">Title</label>
       <input id="title" name="title" placeholder="Title" type="text" required />
-      <label htmlFor="content">Content</label>
-      <input
-        id="content"
-        name="content"
-        placeholder="Content"
-        type="text"
-        required
-      />
       <label htmlFor="image">Image URL</label>
       <input
         id="image"

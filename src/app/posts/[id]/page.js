@@ -28,18 +28,23 @@ export default async function Page({ params }) {
   //   const postWithComms = post.rows[0];
   //   console.log(postWithComms);
 
-  const post = await db.query(`SELECT posts.*, ARRAY_AGG(json_build_object(
-  'id', comments.id,
-  'content', comments.content,
-  'post_id', comments.post_id
-)) AS comments
-FROM posts
-INNER JOIN comments on comments.post_id = posts.id
-GROUP BY comments.post_id, posts.id`);
+  const post = await db.query(`
+    SELECT 
+      posts.*, 
+      ARRAY_AGG(json_build_object(
+        'id', comments.id,
+        'content', comments.content,
+        'post_id', comments.post_id
+      )) AS comments
+    FROM posts
+    INNER JOIN comments ON comments.post_id = posts.id
+    WHERE posts.id = ${slug.id}
+    GROUP BY posts.id
+  `);
 
   const singlePost = post.rows[0];
   console.log(singlePost);
-  const comments = singlePost.comments[0];
+  const comments = singlePost.comments;
   console.log(comments);
 
   return (
@@ -52,9 +57,14 @@ GROUP BY comments.post_id, posts.id`);
         src={singlePost.image}
       />
       <p>{singlePost.content}</p>
-      <section>
-        <p>{comments.content}</p>
-      </section>
+      <div>
+        {/* need to map from the parent i.e. singlePost (comments.map didn't work) */}
+        {singlePost.comments.map((comment) => (
+          <div key={comment.id}>
+            <p>{comment.content}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
