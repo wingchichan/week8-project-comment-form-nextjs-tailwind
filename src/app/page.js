@@ -1,19 +1,15 @@
 import Image from "next/image";
 // import styles from "./page.module.css";
 import Link from "next/link";
+import { ramettoOne } from "@/app/layout";
 
 export default function Home() {
   return (
     <div>
       <header>
-        <h1>Welcome to the new Instagram</h1>
+        <h1>Snapshot</h1>
       </header>
-      <main>
-        <Link href="/posts">Your posts</Link>
-        <Link href="/newPost">Add post</Link>
-
-        {/* add new post */}
-      </main>
+      <main></main>
       <footer></footer>
     </div>
   );

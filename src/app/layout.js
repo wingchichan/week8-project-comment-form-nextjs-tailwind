@@ -1,5 +1,6 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Rammetto_One } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -8,6 +9,12 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const ramettoOne = Rammetto_One({
+  weight: "400",
+  variable: "--font-ramettoOne",
   subsets: ["latin"],
 });
 
@@ -22,6 +29,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <nav>
+          <Link href={"/"}>Home</Link>
+
+          <Link href="/posts">Your posts</Link>
+          <Link href="/newPost">Add post</Link>
+        </nav>
         {children}
       </body>
     </html>

@@ -1,4 +1,5 @@
 import pg from "pg";
+import Link from "next/link";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -18,18 +19,26 @@ export default function Page() {
     redirect("/posts");
   }
   return (
-    <form action={handleAddPost}>
-      <label htmlFor="title">Title</label>
-      <input id="title" name="title" placeholder="Title" type="text" required />
-      <label htmlFor="image">Image URL</label>
-      <input
-        id="image"
-        name="image"
-        placeholder="Image URL"
-        type="text"
-        required
-      />
-      <button>Add</button>
-    </form>
+    <div>
+      <form action={handleAddPost}>
+        <label htmlFor="title">Title</label>
+        <input
+          id="title"
+          name="title"
+          placeholder="Title"
+          type="text"
+          required
+        />
+        <label htmlFor="image">Image URL</label>
+        <input
+          id="image"
+          name="image"
+          placeholder="Image URL"
+          type="text"
+          required
+        />
+        <button>Add</button>
+      </form>
+    </div>
   );
 }
